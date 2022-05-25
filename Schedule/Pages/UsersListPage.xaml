@@ -1,0 +1,43 @@
+﻿<Page x:Class="Schedule.Pages.UsersListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Schedule.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UsersListPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#00b0e3" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Зарегистрированные пользователи" FontSize="25" Grid.ColumnSpan="2"/>
+
+        <DataGrid Name="gridUsers" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="*"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="*"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="*"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Pathronymic}" Width="*"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="*"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.Type}" Width="*"/>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnEditUser" Content="Редактировать" Click="btnEdit_Click" Background="#00b0e3" ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button VerticalAlignment="Center" Content="Добавить" Grid.Row="2" HorizontalAlignment="Left" Name="btnAddUser" Click="btnAddUser_Click" Background="#00b0e3"></Button>
+        <Button VerticalAlignment="Center" Content="Удалить" Grid.Row="2" HorizontalAlignment="Right" Name="btnDeleteUser" Click="btnDeleteUser_Click" Background="#00b0e3"></Button>
+    </Grid>
+</Page>

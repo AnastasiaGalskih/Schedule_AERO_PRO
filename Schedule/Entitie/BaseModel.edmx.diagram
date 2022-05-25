@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="91eb2d40cf2249d5be0fbe496b89793a" Name="Diagram1">
+        <EntityTypeShape EntityType="ScheduleModel.History" Width="1.5" PointX="7.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.Pass" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.Role" Width="1.5" PointX="2.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.Schedule" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.TypeMachine" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.User" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ScheduleModel.Worker" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="ScheduleModel.FK_History_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ScheduleModel.FK_Pass_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="ScheduleModel.FK_Pass_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="ScheduleModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ScheduleModel.FK_Schedule_TypeMachine" ManuallyRouted="false" />
+        <AssociationConnector Association="ScheduleModel.FK_Schedule_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="ScheduleModel.FK_Worker_TypeMachine" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

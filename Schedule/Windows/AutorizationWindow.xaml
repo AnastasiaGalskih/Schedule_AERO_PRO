@@ -1,0 +1,39 @@
+﻿<Window x:Class="Schedule.Windows.AutorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Schedule.Windows"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="460" Width="320" Foreground="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#00b0e3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="/Schedule;component/Resources/Logo.png" Width="200"/>
+        <TextBlock Grid.Row="1" Text="Авторизация" FontSize="28"></TextBlock>
+        <Grid Grid.Row="2" Height="70">
+            <TextBlock Text="Введите логин" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,5"></TextBlock>
+            <TextBox Name="txtBoxLogin" VerticalAlignment="Bottom" TabIndex="1"/>
+        </Grid>
+        <Grid Grid.Row="3" Height="100">
+            <PasswordBox Name="passBoxPassword" PreviewTextInput="passBoxPassword_PreviewTextInput" ></PasswordBox>
+            <TextBlock Text="Введите пароль" FontSize="18" VerticalAlignment="Top" Margin="0,0,0,0" PreviewTextInput="TextBlock_PreviewTextInput"></TextBlock>
+            <TextBox Name="txtBoxPassword" VerticalAlignment="Center" TabIndex="0"></TextBox>
+            <Grid Height="40" Width="175" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="156*"/>
+                    <ColumnDefinition Width="19*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox HorizontalAlignment="Left" VerticalAlignment="Center" Name="checkBoxPass" Checked="checkBoxPass_Checked" Unchecked="checkBoxPass_Unchecked" Margin="0,12"/>
+                <TextBlock Name="txtBlockPassword" Text="Показать пароль" Margin="51,13,12,12"></TextBlock>
+            </Grid>
+        </Grid>
+        <Button Name="btnEnter" Grid.Row="4" Content="Войти" HorizontalAlignment="Center"  FontSize="20" Click="btnEnter_Click" ></Button>
+        <Button Name="btnExit" Grid.Row="4" Content="Выход" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="20" Click="btnExit_Click" ></Button>
+    </Grid>
+</Window>
