@@ -76,7 +76,7 @@ namespace Schedule.Pages
                 if (schedule != null)
                     errors.AppendLine("На это рабочее место уже назначен сотрудник");
 
-                if(dpWorkDate.DisplayDate <= DateTime.Today)
+                if(dpWorkDate.DisplayDate < DateTime.Today)
                     errors.AppendLine("Вы не можете изменить уже прошедшее расписание");
             }
 

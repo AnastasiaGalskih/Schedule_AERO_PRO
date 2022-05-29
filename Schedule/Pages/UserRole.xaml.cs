@@ -27,7 +27,10 @@ namespace Schedule.Pages
             txtRole.Text = Entitie.UserName.userRole;
 
             if (txtRole.Text != "Администратор")
-                btnUsers.Visibility = Visibility.Hidden;
+            {
+               btnUsers.Visibility = Visibility.Hidden;
+               btnHistory.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnUsers_Click(object sender, RoutedEventArgs e)

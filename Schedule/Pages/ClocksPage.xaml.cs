@@ -28,11 +28,11 @@ namespace Schedule.Pages
 
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog p = new PrintDialog();
-            if(p.ShowDialog() == true)
-            {
-                p.PrintVisual(gridClocks, "Печать");
-            }
+            Entitie.PrintClass.startDate = dpStartDate.SelectedDate.ToString();
+            Entitie.PrintClass.endDate = dpEndDate.SelectedDate.ToString();
+            Entitie.PrintClass.dataContext = gridClocks.ItemsSource;
+
+            Entitie.Manager.StartFrame.Navigate(new Pages.PrintFormPage());
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

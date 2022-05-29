@@ -33,7 +33,7 @@
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Редактировать" Name="btnEdit" Click="btnEdit_Click"/>
+                            <Button Content="Редактировать" Name="btnEdit" Click="btnEdit_Click" Background="#00b0e3"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
