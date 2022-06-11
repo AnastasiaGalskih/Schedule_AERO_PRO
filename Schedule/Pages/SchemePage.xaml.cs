@@ -85,33 +85,43 @@ namespace Schedule.Pages
             }
         }
 
-        private void SavePass(string[] tips, int number)
+        private void SavePass(string[] tips, int number, Button button)
         {
             var currentWorker = Entitie.ScheduleEntities4.GetContext().Workers.ToList();
             var worker = currentWorker.Where(p => p.FullName == tips[number]).FirstOrDefault();
-            currentPass.IdWorker = worker.Id;
 
-            currentPass.Date = DateTime.Today;
-
-            var currentSchedule = Entitie.ScheduleEntities4.GetContext().Schedules.ToList();
-            var schedule = currentSchedule.Where(p => p.Date == DateTime.Today && p.IdWorker == worker.Id).FirstOrDefault();
-            currentPass.IdSchedule = schedule.Id;
-
-            if (MessageBox.Show($"Подтверждаете что сотрудник {tips[number]} отсутствует на рабочем месте?", "Внимание!",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (worker != null)
             {
-                if (currentPass.Id == 0)
-                Entitie.ScheduleEntities4.GetContext().Passes.Add(currentPass);
-                
-                try
+                currentPass.IdWorker = worker.Id;
+
+                currentPass.Date = DateTime.Today;
+
+                var currentSchedule = Entitie.ScheduleEntities4.GetContext().Schedules.ToList();
+                var schedule = currentSchedule.Where(p => p.Date == DateTime.Today && p.IdWorker == worker.Id).FirstOrDefault();
+                currentPass.IdSchedule = schedule.Id;
+
+                if (MessageBox.Show($"Подтверждаете что сотрудник {tips[number]} отсутствует на рабочем месте?", "Внимание!",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    Entitie.ScheduleEntities4.GetContext().SaveChanges();
-                    MessageBox.Show("Информация сохранена");
+                    if (currentPass.Id == 0)
+                        Entitie.ScheduleEntities4.GetContext().Passes.Add(currentPass);
+
+                    try
+                    {
+                        Entitie.ScheduleEntities4.GetContext().SaveChanges();
+                        MessageBox.Show("Информация сохранена");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+
+                    button.Background = Brushes.Red;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+            }
+            else
+            {
+                MessageBox.Show($"На данное место не назначен сотрудник", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             gridPasses.ItemsSource = Entitie.ScheduleEntities4.GetContext().Passes.ToList().Where(p => p.Date == date);
@@ -119,92 +129,77 @@ namespace Schedule.Pages
 
         private void number11_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 0);
-            number11.Background = Brushes.Red;
+            SavePass(tips1, 0, number11);
         }
 
         private void number12_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 1);
-            number12.Background = Brushes.Red;
+            SavePass(tips1, 1, number12);
         }
 
         private void number13_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 2);
-            number13.Background = Brushes.Red;
+            SavePass(tips1, 2, number13);
         }
 
         private void number14_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 3);
-            number14.Background = Brushes.Red;
+            SavePass(tips1, 3, number14);
         }
 
         private void number18_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 7);
-            number18.Background = Brushes.Red;
+            SavePass(tips1, 7, number18);
         }
 
         private void number17_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 6);
-            number17.Background = Brushes.Red;
+            SavePass(tips1, 6, number17);
         }
 
         private void number16_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 5);
-            number16.Background = Brushes.Red;
+            SavePass(tips1, 5, number16);
         }
 
         private void number15_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips1, 4);
-            number15.Background = Brushes.Red;
+            SavePass(tips1, 4, number15);
         }
 
         private void number21_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips2, 0);
-            number21.Background = Brushes.Red;
+            SavePass(tips2, 0, number21);
         }
 
         private void number22_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips2, 1);
-            number22.Background = Brushes.Red;
+            SavePass(tips2, 1, number22);
         }
 
         private void number24_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips2, 3);
-            number24.Background = Brushes.Red;
+            SavePass(tips2, 3, number24);
         }
 
         private void number23_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips2, 2);
-            number23.Background = Brushes.Red;
+            SavePass(tips2, 2, number23);
         }
 
         private void number33_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips3, 2);
-            number33.Background = Brushes.Red;
+            SavePass(tips3, 2, number33);
         }
 
         private void number32_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips3, 1);
-            number32.Background = Brushes.Red;
+            SavePass(tips3, 1, number32);
         }
 
         private void number31_Click(object sender, RoutedEventArgs e)
         {
-            SavePass(tips3, 0);
-            number31.Background = Brushes.Red;
+            SavePass(tips3, 0, number31);
         }
 
     }
