@@ -72,7 +72,7 @@ namespace Schedule.Pages
             try
             {
                 Entitie.ScheduleEntities4.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
+                MessageBox.Show("Информация сохранена"); 
             }
             catch(Exception ex)
             {
